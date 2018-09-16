@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title>Profile Page</title>
+</head>
+<body>
+<div>
+  <span>Welcome </span><span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span><span>. Here are your profile details.</span>
+  <br />
+  <ul>
+    <li><span>User ID: </span><span th:text="${user.id}"></span></li>
+    <li><span>Firstname: </span><span th:text="${user.firstName}"></span></li>
+    <li><span>Lastname: </span><span th:text="${user.lastName}"></span></li>
+    <li><span>Email: </span><span th:text="${user.email}"></span></li>
+  </ul>
+</div>
+</body>
+</html>
