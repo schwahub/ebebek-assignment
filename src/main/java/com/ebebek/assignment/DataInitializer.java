@@ -1,21 +1,18 @@
 package com.ebebek.assignment;
 
 import com.ebebek.assignment.controller.UserCreationRequest;
-import com.ebebek.assignment.model.User;
-import com.ebebek.assignment.repository.UserRepository;
-import com.ebebek.assignment.service.LoginService;
+import com.ebebek.assignment.service.UserService;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MySqlDataInitializer implements ApplicationListener<ApplicationStartedEvent> {
+public class DataInitializer implements ApplicationListener<ApplicationStartedEvent> {
 
     @Autowired
-    LoginService loginService;
+    UserService userService;
 
     @Override
     public void onApplicationEvent(ApplicationStartedEvent applicationStartedEvent) {
@@ -30,7 +27,7 @@ public class MySqlDataInitializer implements ApplicationListener<ApplicationStar
         request.setFirstName("Mustafa");
         request.setLastName("Ergin");
         request.setPassword("Mustafa@ebebek");
-        loginService.create(request);
+        userService.create(request);
     }
 
 }

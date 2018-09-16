@@ -1,7 +1,7 @@
 package com.ebebek.assignment.controller;
 
 import com.ebebek.assignment.model.User;
-import com.ebebek.assignment.service.LoginService;
+import com.ebebek.assignment.service.UserService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class RegisterController {
 
     @Autowired
-    LoginService loginService;
+    UserService userService;
 
     @GetMapping(value = "/register")
     public ModelAndView getData() {
@@ -29,7 +29,7 @@ public class RegisterController {
             BindingResult result) {
         User user = null;
         if (!result.hasErrors()) {
-            user = loginService.create(request);
+            user = userService.create(request);
         }
         return user == null ? "register" : "redirect:/login?register=true";
     }

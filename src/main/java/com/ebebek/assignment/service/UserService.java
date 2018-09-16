@@ -5,7 +5,7 @@ import com.ebebek.assignment.model.User;
 import java.io.Serializable;
 import javax.validation.Valid;
 
-public interface LoginService extends Serializable {
+public interface UserService extends Serializable {
 
     User create(@Valid UserCreationRequest request);
 
