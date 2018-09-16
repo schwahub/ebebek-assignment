@@ -1,15 +1,13 @@
 package com.ebebek.assignment.controller;
 
+import com.ebebek.assignment.validation.Email;
 import com.ebebek.assignment.validation.FieldMatch;
 import com.ebebek.assignment.validation.Password;
 import java.io.Serializable;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match")
-
 public class UserCreationRequest implements Serializable {
 
     @NotEmpty
@@ -26,7 +24,6 @@ public class UserCreationRequest implements Serializable {
 
     @Email
     @NotEmpty
-    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", message = "Invalid email format")
     private String email;
 
     @NotEmpty

@@ -1,14 +1,13 @@
 package com.ebebek.assignment.model;
 
+import com.ebebek.assignment.validation.Email;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity(name = "user")
@@ -33,7 +32,6 @@ public class User implements Serializable {
 
     @Email
     @NotEmpty
-    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")
     @Column(name = "email")
     private String email;
 
